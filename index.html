@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real Trading Account Registration</title>
+  <style>
+    h2 {
+      font-weight: bold;
+      color: red;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 10px;
+      margin-top: 1px;
+      display: none;
+    }
+
+     .form-control {
+      width: 95%;
+      height: 30px;
+    }
+
+    .form-control1 {
+      width: 70%;
+      height: 30px;
+    }
+button[type=submit] {
+      background-color: green;
+      color: white;
+      padding: 10px 50px;
+      border: none;
+      cursor: pointer;
+  </style>
+</head>
+<body>
+
+  <h2>Personal Details</h2>
+<table>
+  <form>
+    <tr><td><div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="firstname" class="form-control" />
+      <span class="error-message" id="firstname-error"></span>
+    </div></td>
+
+    <td><div class="form-group">
+      <label for="middlename">Middle Name (If Applicable)</label>
+      <input type="text" id="middlename" name="middlename" class="form-control" />
+      <span class="error-message" id="middlename-error"></span>
+    </div></td></tr>
+
+    <tr><td><div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" class="form-control" />
+      <span class="error-message" id="lastname-error"></span>
+    </div></td>
+
+    <td><div class="form-group">
+      <label for="country">Country of Residence</label>
+      <select class="form-control">
+      <option value="philippines">Philippines</option>
+      <option value="usa">USA</option>
+      <option value="india">Indonesia</option>
+      <option value="select">Country of Residence</option>
+    </select></td>
+
+    <tr><td><div class="form-group">
+      <label for="country">Preferred Language</label>
+      <select class="form-control">
+      <option value="philippines">Filipino</option>
+      <option value="usa">English</option>
+      <option value="indonesia">Indonesian</option>
+      <option value="select">Please select</option>
+    </select></div></td></tr>
+
+      <tr><td><div class="form-group">
+      <label for="country">Code</label>
+      <select class="form-control">
+      <option value="philippines">+63</option>
+      <option value="usa">+1</option>
+      <option value="indonesia">+62</option>
+      <option value="select">Please select</option>
+    </select></div></td>
+
+    <td><div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" class="form-control" />
+      <span class="error-message" id="phone-error"></span>
+    </div></td></tr>
+
+    <tr><td><div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" />
+    </div></td></tr>
+  </table>
+<p>HINT: Only 1 email address is allowed per client</p>
+    <h2>Trading Account Details</h2>
+    <tr><td><div class="form-group">
+      <label for="platformtype">Trading Platform Type</label>
+      <select class="form-control1">
+      <option>MT5 (Forex, CFDs on Cryptocurrencies, Stocks, Equity Indices, Metals, Energies)</option>
+      <option>MT4 (Forex, CFDs on Cryptocurrencies, Equity Indices, Metals, Energies)</option>
+    </select></div></td>
+
+    <tr><td><div class="form-group">
+      <label for="acctype">Account Type</label>
+      <select class="form-control1">
+      <option>Standard (1 lot=100,000)</option>
+    </select></div></td>
+    <button type="submit">PROCEED TO STEP 2</button>
+  </form>
+
+  <script>
+    const firstnameInput = document.getElementById("firstname");
+    const middlenameInput = document.getElementById("middlename");
+    const lastnameInput = document.getElementById("lastname");
+    const phoneInput = document.getElementById("phone");
+    const emailInput = document.getElementById("email");
+    const firstnameError = document.getElementById("firstname-error");
+    const middlenameError = document.getElementById("middlename-error");
+    const lastnameError = document.getElementById("lastname-error");
+    const phoneError = document.getElementById("phone-error");
+    const emailError = document.getElementById("email-error");
+
+    firstnameInput.addEventListener("input", function() {
+      if (firstnameInput.value.length < 8) {
+        firstnameError.textContent = "First Name must be at least 8 characters";
+        firstnameError.style.display = "block";
+      } else {
+        firstnameError.style.display = "none";
+      }
+    });
+
+    middlenameInput.addEventListener("input", function() {
+      if (middlenameInput.value.length < 8) {
+        middlenameError.textContent = "Middle Name must be at least 8 characters";
+        middlenameError.style.display = "block";
+      } else {
+        middlenameError.style.display = "none";
+      }
+    });
+
+    lastnameInput.addEventListener("input", function() {
+      if (lastnameInput.value.length < 8) {
+        lastnameError.textContent = "Last Name must be at least 8 characters";
+        lastnameError.style.display = "block";
+      } else {
+        lastnameError.style.display = "none";
+      }
+    });
+
+    phoneInput.addEventListener("input", function() {
+      if (phoneInput.value.length <11)  {
+        phoneError.textContent = "Please enter your valid phone number";
+        phoneError.style.display = "block";
+      } else {
+        phoneError.style.display = "none";
+      }
+    });
+
+    emailInput.addEventListener("input", function() {
+      if (emailInput.value.length <30)  {
+        emailError.textContent = "Please enter your valid email";
+        emailError.style.display = "block";
+      } else {
+        emailError.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
